@@ -114,6 +114,8 @@ class GameMenu(UIInterface):
             process.join()
             continue
 
+          tank = TankBuilder.random_generate()
+
           map = Map()
           map.add_object(tank)
           map.random_generate_map(200)
@@ -126,6 +128,7 @@ class GameMenu(UIInterface):
           player_controller.set_up(UP)
           player_controller.set_down(DOWN)
           player_controller.set_shoot(SHOOT)
+          player_controller.set(tank)
 
 
           ui = UIGame()
@@ -165,11 +168,10 @@ class GameMenu(UIInterface):
             message = queue.shift_in_wait()
             body = pickle.loads(message)
             if body["command"] == 0 and body["secret"] == secret:
+              tank = TankBuilder.random_generate(body["l"])
               tank.sprite.x = body["x"]
               tank.sprite.y = body["y"]
               tank.id = body["id"]
-              tank.level = body["l"]
-              tank.bulletDamage = body["u"]
               break
 
           map = Map()

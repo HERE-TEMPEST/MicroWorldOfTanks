@@ -159,7 +159,7 @@ class TankBuilder:
     TankBuilder.tank.hp = 8
     return TankBuilder.get_result()
 
-  def random_generate():
+  def random_generate(level = 0):
     level = randint(1, 7)
     if level is 1:
       return TankBuilder.custom_level_1()
