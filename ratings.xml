@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<ratings>
+	<rating name="Andrei">
+		<score>100</score>
+	</rating>
+	<rating name="Nikita">
+		<score>200</score>
+	</rating>
+	<rating name="Anna">
+		<score>300</score>
+	</rating>
+</ratings>
